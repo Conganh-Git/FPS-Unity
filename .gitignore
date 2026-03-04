@@ -5,6 +5,8 @@
 [Ll]ogs/
 UserSettings/
 MemoryCaptures/
+.vs/
+obj/
 
 *.csproj
 *.sln
