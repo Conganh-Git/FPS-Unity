@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\canh\\Documents\\Unityprojecttest\\FPS unity\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE859100-81CD-0215-858F-6419F2A753BD}|Assembly-CSharp.csproj|c:\\users\\canh\\documents\\unityprojecttest\\fps unity\\assets\\inputreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE859100-81CD-0215-858F-6419F2A753BD}|Assembly-CSharp.csproj|solutionrelative:assets\\inputreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE859100-81CD-0215-858F-6419F2A753BD}|Assembly-CSharp.csproj|c:\\users\\canh\\documents\\unityprojecttest\\fps unity\\assets\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE859100-81CD-0215-858F-6419F2A753BD}|Assembly-CSharp.csproj|solutionrelative:assets\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\canh\\Documents\\Unityprojecttest\\FPS unity\\Assets\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\canh\\Documents\\Unityprojecttest\\FPS unity\\Assets\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\PlayerController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowBwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T17:26:23.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InputReader.cs",
+              "DocumentMoniker": "C:\\Users\\canh\\Documents\\Unityprojecttest\\FPS unity\\Assets\\InputReader.cs",
+              "RelativeDocumentMoniker": "Assets\\InputReader.cs",
+              "ToolTip": "C:\\Users\\canh\\Documents\\Unityprojecttest\\FPS unity\\Assets\\InputReader.cs",
+              "RelativeToolTip": "Assets\\InputReader.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T16:43:03.502Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
