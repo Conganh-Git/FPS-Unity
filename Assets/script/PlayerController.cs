@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float pitchClamp = 85f;
 
     [SerializeField] private float shootRange = 100f;
+    [SerializeField] private AudioSource gunFire;
+    [SerializeField] private GameObject handGun;
+    [SerializeField] bool canFire = true;
+
     
 
 
@@ -55,15 +60,22 @@ public class PlayerController : MonoBehaviour
     }    
     private void OnFire()
     {
-        Debug.Log("Fire");
+        if(canFire == true)
+        {
+            canFire = false;
+            StartCoroutine(FiringGun());
+        }
     }
 
     private void Update()
     {
         // MOVE
+
         // Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y); // V2 -> V3 . y -> z
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y; // Move = Mouse
         controller.Move(move * moveSpeed * Time.deltaTime);
+
+        // Mouse Look 
 
         float yaw = lookInput.x * mouseSensitivity; // Body look around
         transform.Rotate(Vector3.up * yaw);
@@ -73,5 +85,15 @@ public class PlayerController : MonoBehaviour
 
         if (cameraTransform != null) 
         cameraTransform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+
+        
+    }
+
+    IEnumerator FiringGun()
+    {
+        gunFire.Play();
+        handGun.GetComponent<Animator>().Play("HandgunFire");
+        yield return new WaitForSeconds(0.5f);
+        canFire = true;
     }
 }
