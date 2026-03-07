@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 0.08f;
     [SerializeField] private float pitchClamp = 85f;
 
-    [SerializeField] GameObject extraCross;
+    [SerializeField] private GameObject extraCross;
     [SerializeField] private AudioSource gunFire;
+    [SerializeField] private AudioSource emtyGunSound;
     [SerializeField] private GameObject handGun;
     [SerializeField] bool canFire = true;
 
@@ -62,8 +63,18 @@ public class PlayerController : MonoBehaviour
     {
         if(canFire == true)
         {
-            canFire = false;
-            StartCoroutine(FiringGun());
+            if (GlobalAmmo.handgunAmmoCount == 0)
+            {
+                canFire = false;
+                StartCoroutine(EmptyGun());
+
+            }
+            else
+            {
+                canFire = false;
+                StartCoroutine(FiringGun());
+            }
+                
         }
     }
 
@@ -93,11 +104,19 @@ public class PlayerController : MonoBehaviour
     {
         gunFire.Play();
         extraCross.SetActive(true);
+        GlobalAmmo.handgunAmmoCount -= 1;
         handGun.GetComponent<Animator>().Play("HandgunFire");
         yield return new WaitForSeconds(0.5f);
         handGun.GetComponent<Animator>().Play("gunfire");
         extraCross.SetActive(false);
         yield return new WaitForSeconds(0.1f);
+        canFire = true;
+    }
+
+    IEnumerator EmptyGun()
+    {
+        emtyGunSound.Play();
+        yield return new WaitForSeconds(0.6f);
         canFire = true;
     }
 }
