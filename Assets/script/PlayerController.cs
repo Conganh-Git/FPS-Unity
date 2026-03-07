@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputReader input;
 
-    [SerializeField] private float moveSpeed = 5f; 
+    [SerializeField] private float moveSpeed = 5f;
 
     [SerializeField] private Transform cameraTransform; // Drag PlayerCamera and drop
     [SerializeField] private float mouseSensitivity = 0.08f;
     [SerializeField] private float pitchClamp = 85f;
 
-    [SerializeField] private float shootRange = 100f;
+    [SerializeField] GameObject extraCross;
     [SerializeField] private AudioSource gunFire;
     [SerializeField] private GameObject handGun;
     [SerializeField] bool canFire = true;
@@ -92,8 +92,12 @@ public class PlayerController : MonoBehaviour
     IEnumerator FiringGun()
     {
         gunFire.Play();
+        extraCross.SetActive(true);
         handGun.GetComponent<Animator>().Play("HandgunFire");
         yield return new WaitForSeconds(0.5f);
+        handGun.GetComponent<Animator>().Play("gunfire");
+        extraCross.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         canFire = true;
     }
 }
