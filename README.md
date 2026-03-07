@@ -7,8 +7,10 @@ This is a basic 3D FPS prototype built with Unity.
 - Input System architecture (InputReader → PlayerController)
 - Player movement using CharacterController ( with ADSW )
 - Camera-relative movement with mouse look (yaw & clamped pitch)
-- Handgun firing system (animation + sound)
+- Handgun firing system (Animation + Sound)
 - Clean project structure
+- Crosshair with UI display
+- Ammo system with UI display 
 
 ## Tech Stack
 - Unity
