@@ -7,7 +7,10 @@ using UnityEngine.XR;
 public class InputReader : MonoBehaviour
 {
     public event Action<Vector2> MoveEvent; // create event name send ADSW
+    public event Action<bool> SprintEvent;
+
     public event Action<Vector2> LookEvent; // who want hear me about move or look come here.
+
     public event Action FireEvent;
 
     private PlayerInputActions actions; // creat from InputAction
@@ -24,6 +27,9 @@ public class InputReader : MonoBehaviour
         actions.PlayerM.Move.performed += CallMove;
         actions.PlayerM.Move.canceled += CallMove;
 
+        actions.PlayerM.Sprint.performed += CallSprint;
+        actions.PlayerM.Sprint.canceled += CallSprint;
+
         actions.PlayerM.Look.performed += CallLook;
         actions.PlayerM.Look.canceled += CallLook;
 
@@ -36,6 +42,9 @@ public class InputReader : MonoBehaviour
     {
         actions.PlayerM.Move.performed -= CallMove;
         actions.PlayerM.Move.canceled -= CallMove;
+
+        actions.PlayerM.Sprint.performed -= CallSprint;
+        actions.PlayerM.Sprint.canceled -= CallSprint;
 
         actions.PlayerM.Look.performed -= CallLook;
         actions.PlayerM.Look.canceled -= CallLook;
@@ -50,6 +59,10 @@ public class InputReader : MonoBehaviour
         MoveEvent?.Invoke(call.ReadValue<Vector2>());       // ?  = null-safe
     }
 
+    private void CallSprint(InputAction.CallbackContext call)
+    {
+        SprintEvent?.Invoke(call.ReadValueAsButton());
+    }    
     private void CallLook(InputAction.CallbackContext call) // call = take Value of Callback and read it under V2
     {
         LookEvent?.Invoke(call.ReadValue<Vector2>());       // Invoke = call all people want hear

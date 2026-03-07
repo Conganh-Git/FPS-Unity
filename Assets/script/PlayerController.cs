@@ -5,7 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputReader input;
 
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 8f;
+    [SerializeField] private float moveSpeed;
 
     [SerializeField] private Transform cameraTransform; // Drag PlayerCamera and drop
     [SerializeField] private float mouseSensitivity = 0.08f;
@@ -17,15 +19,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject handGun;
     [SerializeField] bool canFire = true;
 
-    
+    public Vector2 MoveInput => moveInput;
+    public bool IsSprinting => isSprinting;
 
 
     private CharacterController controller;
 
     private Vector2 moveInput; // create Place to save Value
+    private bool isSprinting;
+
+   
 
     private Vector2 lookInput;
     private float pitch;
+
 
 
     private void Awake()
@@ -37,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         if (input == null) return;
         input.MoveEvent += OnMove;
+        input.SprintEvent += OnSprint;
         input.LookEvent += OnLook;
         input.FireEvent += OnFire;
 
@@ -45,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         if (input == null) return;
         input.MoveEvent -= OnMove;
+        input.SprintEvent -= OnSprint;
         input.LookEvent -= OnLook;
         input.FireEvent -= OnFire;
 
@@ -55,6 +64,10 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = v;
     }
+    private void OnSprint(bool value)
+    {
+        isSprinting = value;
+    }    
     private void OnLook(Vector2 v)
     {
         lookInput = v;
@@ -84,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
         // Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y); // V2 -> V3 . y -> z
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y; // Move = Mouse
+        moveSpeed = isSprinting && moveInput.y > 0 ? sprintSpeed : walkSpeed;
         controller.Move(move * moveSpeed * Time.deltaTime);
 
         // Mouse Look 
