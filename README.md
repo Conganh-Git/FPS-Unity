@@ -29,3 +29,4 @@ InputReader → Player systems
 Core FPS mechanics implemented.
 
 ![Gameplay](README_images/gameplay.png)
+![Shooting](README_images/shootingbottle.png)
