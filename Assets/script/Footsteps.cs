@@ -11,11 +11,11 @@ public class Footsteps : MonoBehaviour
     [SerializeField] bool isStepping;
     [SerializeField] int soundNumber;
     
-    private PlayerController playerController;
+    private PlayerMovement playerController;
 
     private void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        playerController = GetComponent<PlayerMovement>();
     }
 
     void Update()

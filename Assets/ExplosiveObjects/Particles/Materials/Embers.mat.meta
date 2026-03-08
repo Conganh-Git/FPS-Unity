@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c49d19d7b5bc365469a66a087592c462
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 255996
+  packageName: Exploding Objects
+  packageVersion: 1.1
+  assetPath: Assets/ExplosiveObjects/Particles/Materials/Embers.mat
+  uploadId: 850400
